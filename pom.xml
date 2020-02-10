@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.bawei</groupId>
+  <artifactId>helloMaven</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <!-- jar依赖 -->
+  <dependencies>
+     <dependency>
+       <groupId>org.springframework</groupId>
+       <artifactId>spring-webmvc</artifactId>
+        <version>5.1.5.RELEASE</version>
+     </dependency>
+
+
+     <dependency>
+     	<groupId>javax.servlet</groupId>
+     	<artifactId>javax.servlet-api</artifactId>
+     	<version>3.1.0</version>
+     </dependency>
+     <dependency>
+     	<groupId>org.eclipse.jetty</groupId>
+     	<artifactId>jetty-xml</artifactId>
+     	<version>9.3.7.v20160115</version>
+     </dependency>
+  </dependencies>
+  
+  <build>
+     <plugins>
+     <!-- 项目编译插件 -->
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-compiler-plugin</artifactId>
+         <version>3.5.1</version>
+         <configuration>
+         <!-- 项目源码及编译后版本 -->
+            <source>1.8</source>
+            <target>1.8</target>
+         </configuration>
+       </plugin>
+       
+       <!-- 配置jetty插件 -->
+       <plugin>
+          <groupId>org.eclipse.jetty</groupId>
+          <artifactId>jetty-maven-plugin</artifactId>
+          <version>9.3.7.v20160115</version>
+          <configuration>
+            <httpConnector>
+              <port>80</port>
+              <host>localhost</host>
+            </httpConnector>
+          </configuration>
+       </plugin>
+     </plugins>
+  </build>
+</project>
